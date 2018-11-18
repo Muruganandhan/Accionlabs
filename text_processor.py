@@ -13,14 +13,12 @@ class TextProcessor:
     current_section = [0]
 
     def parse(self):
-
         s = sys.stdin.read()
         prefixes = re.findall(TextProcessor.PATTERN, s, re.MULTILINE)
         self.pre_processing(prefixes)
         indent = 0
 
         for line in s.split("\n"):
-
             # Skips empty lines
             if not line.strip():
                 continue
